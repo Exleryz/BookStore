@@ -1,11 +1,10 @@
 package com.yezhou.bookStore.dao;
 
-import com.sun.mail.util.QEncoderStream;
 import com.yezhou.bookStore.domain.User;
 import com.yezhou.bookStore.util.C3P0Util;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import sun.misc.Perf;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
 
@@ -13,6 +12,7 @@ public class UserDao {
 
     /**
      * 注册  添加用户
+     *
      * @param user
      * @throws SQLException
      */
@@ -29,6 +29,7 @@ public class UserDao {
 
     /**
      * 激活 激活码查找用户
+     *
      * @param activeCode
      * @return
      * @throws SQLException
@@ -40,6 +41,7 @@ public class UserDao {
 
     /**
      * 修改用户状态
+     *
      * @param activeCode
      * @throws SQLException
      */
@@ -50,6 +52,7 @@ public class UserDao {
 
     /**
      * 用户登录
+     *
      * @param username
      * @param password
      * @return
@@ -57,6 +60,29 @@ public class UserDao {
      */
     public User findUserByUserNameAndPassword(String username, String password) throws SQLException {
         QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
-        return qr.query("select * from user where username=? and password=?", new  BeanHandler < User > (User.class), username, password);
+        return qr.query("select * from user where username=? and password=?", new BeanHandler<User>(User.class), username, password);
+    }
+
+    /**
+     * 根据id查找用户
+     *
+     * @param id
+     * @return
+     * @throws SQLException
+     */
+    public User findUserById(String id) throws SQLException {
+        QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+        return qr.query("select * from user where id=?", new BeanHandler<User>(User.class), id);
+    }
+
+    /**
+     * 修改用户信息
+     *
+     * @param user
+     */
+    public void modifyUser(User user) throws SQLException {
+        QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+        qr.update("update user set password=?, gender=?, telephone=? where id =?",
+                user.getPassword(), user.getGender(), user.getTelephone(), user.getId());
     }
 }

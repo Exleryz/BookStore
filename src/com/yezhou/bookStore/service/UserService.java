@@ -4,6 +4,7 @@ import com.yezhou.bookStore.dao.UserDao;
 import com.yezhou.bookStore.domain.User;
 import com.yezhou.bookStore.exception.UserException;
 import com.yezhou.bookStore.util.SendJMail;
+import org.apache.commons.io.output.ThresholdingOutputStream;
 
 import java.sql.SQLException;
 
@@ -55,5 +56,24 @@ public class UserService {
             throw new UserException("用户名或密码错误");
         }
         return user;
+    }
+
+    public User findUserById(String id) throws UserException {
+        try {
+            return ud.findUserById(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new UserException("用户查找失败");
+        }
+
+    }
+
+    public void modifyUser(User user) throws UserException {
+        try {
+            ud.modifyUser(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new UserException("修改失败");
+        }
     }
 }
