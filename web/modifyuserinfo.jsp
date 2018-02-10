@@ -25,12 +25,12 @@
 						<tr>
 							<td class="listtd"><img src="images/miniicon.gif" width="9"
 								height="6" />&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="${pageContext.request.contextPath}/modifyUserServlet">用户信息修改</a></td>
+								href="${pageContext.request.contextPath}/findUserById?id=${user.id}">用户信息修改</a></td>
 						</tr>
 
 						<tr>
 							<td class="listtd"><img src="images/miniicon.gif" width="9"
-								height="6" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="orderlist.jsp">订单查询</a>
+								height="6" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="${pageContext.request.contextPath}/findOrderByUserid">订单查询</a>
 							</td>
 						</tr>
 

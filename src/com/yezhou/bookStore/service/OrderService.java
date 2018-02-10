@@ -7,6 +7,7 @@ import com.yezhou.bookStore.domain.Order;
 import com.yezhou.bookStore.util.ManagerThreadLocal;
 
 import java.sql.SQLException;
+import java.util.List;
 
 
 public class OrderService {
@@ -29,4 +30,21 @@ public class OrderService {
         }
     }
 
+    public List<Order> findOrdersByUserId(int id) {
+        try {
+            return orderDao.findOrders(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Order findOrdersByOrderId(String orderid) {
+        try {
+            return orderDao.findOrdersById(orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
