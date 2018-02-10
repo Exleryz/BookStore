@@ -1,7 +1,9 @@
 package com.yezhou.bookStore.dao;
 
+import com.yezhou.bookStore.domain.Order;
 import com.yezhou.bookStore.domain.Product;
 import com.yezhou.bookStore.util.C3P0Util;
+import com.yezhou.bookStore.util.ManagerThreadLocal;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -13,6 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDao {
+
+    /**
+     * 修改商品数量
+     */
+    public void updateProductNum(Order order) throws SQLException {
+        QueryRunner qr = new QueryRunner();
+
+        Object[][] params = new Object[order.getOrderItems().size()][];
+        for (int i = 0; i < params.length; i++) {
+            params[i] = new Object[]{order.getOrderItems().get(i).getBuynum(),
+                    order.getOrderItems().get(i).getP().getId()};
+        }
+        qr.batch(ManagerThreadLocal.getConnection(), "update products set pnum=pnum-? where id=?", params);
+    }
 
     /**
      * 查找所有图书

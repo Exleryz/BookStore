@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
 @WebServlet(name = "ModifyUserServlet", value = "/modifyUserServlet")
 public class ModifyUserServlet extends HttpServlet {

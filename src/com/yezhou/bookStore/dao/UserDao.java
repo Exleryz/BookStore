@@ -4,7 +4,7 @@ import com.yezhou.bookStore.domain.User;
 import com.yezhou.bookStore.util.C3P0Util;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
+
 
 import java.sql.SQLException;
 

@@ -1,13 +1,12 @@
 package com.yezhou.bookStore.service;
 
 import com.yezhou.bookStore.dao.ProductDao;
+import com.yezhou.bookStore.domain.Order;
 import com.yezhou.bookStore.domain.PageBean;
 import com.yezhou.bookStore.domain.Product;
 
 import java.sql.SQLException;
 import java.util.List;
-
-
 
 public class ProductService {
 	//创建一个Dao对象
@@ -73,6 +72,7 @@ public class ProductService {
 		}
 		return null;
 	}
+
 	//分页查询
 	public PageBean findBooksPage(int currentPage, int pageSize, String category) {
 
@@ -108,6 +108,9 @@ public class ProductService {
 		return null;
 	}
 
+	public void addOrder(Order order) {
+
+	}
 
 
 

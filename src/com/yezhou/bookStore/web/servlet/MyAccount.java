@@ -2,7 +2,6 @@ package com.yezhou.bookStore.web.servlet;
 
 import com.yezhou.bookStore.domain.User;
 
-import javax.persistence.ExcludeSuperclassListeners;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

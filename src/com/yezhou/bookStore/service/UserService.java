@@ -4,7 +4,7 @@ import com.yezhou.bookStore.dao.UserDao;
 import com.yezhou.bookStore.domain.User;
 import com.yezhou.bookStore.exception.UserException;
 import com.yezhou.bookStore.util.SendJMail;
-import org.apache.commons.io.output.ThresholdingOutputStream;
+
 
 import java.sql.SQLException;
 

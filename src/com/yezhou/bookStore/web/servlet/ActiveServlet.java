@@ -1,6 +1,5 @@
 package com.yezhou.bookStore.web.servlet;
 
-import com.yezhou.bookStore.domain.User;
 import com.yezhou.bookStore.exception.UserException;
 import com.yezhou.bookStore.service.UserService;
 

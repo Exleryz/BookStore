@@ -26,7 +26,7 @@
                         href="cart.jsp">&nbsp;购物车</a>&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;订单
                 </div>
 
-                <form id="orderForm" action="#" method="post">
+                <form id="orderForm" action="${pageContext.request.contextPath}/createOrderServlet" method="post">
                     <table cellspacing="0" class="infocontent">
                         <tr>
                             <td>
@@ -60,7 +60,8 @@
                                                                                value="${p.value}" style="width:20px"
                                                                                readonly="readonly"/></td>
                                                         <td width="10%">${p.key.price*p.value}</td>
-                                                        <c:set var="count" value="${count + p.key.price*p.value}"></c:set>
+                                                        <c:set var="count"
+                                                               value="${count + p.key.price*p.value}"></c:set>
 
                                                     </tr>
                                                 </table>
@@ -71,6 +72,7 @@
                                                     <td style="text-align:right; padding-right:40px;"><font
                                                             style="color:#FF0000">合计：&nbsp;&nbsp;${count}元</font></td>
                                                 </tr>
+                                                <input type="hidden" name="money" value="${count}">
                                             </table>
 
                                             <p>
@@ -86,8 +88,8 @@
                                             </p>
                                             <hr/>
                                             <p style="text-align:right">
-                                                <img src="images/gif53_029.gif" width="204" height="51"
-                                                     border="0"/>
+                                                <input type="submit" src="images/gif53_029.gif" width="204" height="51"
+                                                       border="0"/>
                                             </p></td>
                                     </tr>
                                 </table>
