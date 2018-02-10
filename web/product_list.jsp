@@ -33,7 +33,7 @@
                             <h1>计算机</h1>&nbsp;&nbsp;&nbsp;&nbsp;共100种商品
                             <hr/>
                             <div style="margin-top:20px; margin-bottom:5px">
-                                <img src="images/productlist.gif" width="100%" height="38"/>
+                                <img src="${pageContext.request.contextPath}/images/productlist.gif" width="100%" height="38"/>
                             </div>
                             <table cellspacing="0" class="booklist">
                                 <tr>
@@ -49,7 +49,7 @@
                                             </div>
 
                                             <div class="divlisttitle">
-                                                <a href="product_info.jsp">书名:${b.name}<br/>售价:${b.price} </a>
+                                                <a href="${pageContext.request.contextPath}/findBookInfoServlet?id=${b.id}">书名:${b.name}<br/>售价:${b.price} </a>
                                             </div>
                                         </td>
                                     </c:forEach>

@@ -44,21 +44,21 @@
 											</div>
 
 											<div style="text-align:center; margin-top:25px">
-												<a href="cart.jsp">
+												<a href="${pageContext.request.contextPath }/addCartServlet?id=${b.id}">
 													<img src="images/buybutton.gif" border="0" /> 
 												</a>
 											</div></td>
 										<td style="padding:20px 5px 5px 5px"><img
 											src="images/miniicon3.gif" width="16" height="13" /><font
-											class="bookname">&nbsp;&nbsp;Thinking in java</font>
+											class="bookname">&nbsp;&nbsp;${b.name}</font>
 
-											<hr />售价：<font color="#FF0000">￥100</font>
-											<hr /> 类别：计算机
+											<hr />售价：<font color="#FF0000">￥${b.price}</font>
+											<hr /> 类别：${b.category}
 
 											<hr />
 											<p>
 												<b>内容简介：</b>
-											</p> java 经典书籍</td>
+											</p> ${b.description}</td>
 									</tr>
 								</table></td>
 						</tr>
