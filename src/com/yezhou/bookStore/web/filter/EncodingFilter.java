@@ -21,11 +21,9 @@ import javax.servlet.http.HttpServletRequestWrapper;
  */
 public class EncodingFilter implements Filter {
 
-	@Override
 	public void destroy() {
 	}
 
-	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 						 FilterChain chain) throws IOException, ServletException {
 		// 处理请求乱码
@@ -38,7 +36,6 @@ public class EncodingFilter implements Filter {
 		chain.doFilter(myRequest, response);
 	}
 
-	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 	}
 
@@ -80,8 +77,14 @@ class MyRequest extends HttpServletRequestWrapper {
 						for (int i = 0; i < values.length; i++) {
 							try {
 								// 处理get乱码
-								values[i] = new String(values[i]
-										.getBytes("ISO-8859-1"), "utf-8");
+//								System.out.println(values[i]);
+								String a = new String(values[i].getBytes("ISO-8859-1"), "utf-8");
+								if (a.indexOf('?') == -1) {
+									values[i] = a;
+								}    // menu_search.jsp页面的编码已经是utf-8 但使用的是get方式提交，若进行转码会产生乱码？？此处加判断
+//								values[i] = new String(values[i]
+//										.getBytes("ISO-8859-1"), "utf-8");
+//								System.out.println(values[i]);
 							} catch (UnsupportedEncodingException e) {
 								e.printStackTrace();
 							}
