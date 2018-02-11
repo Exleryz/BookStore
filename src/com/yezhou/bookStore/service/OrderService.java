@@ -4,6 +4,7 @@ import com.yezhou.bookStore.dao.OrderDao;
 import com.yezhou.bookStore.dao.OrderItemDao;
 import com.yezhou.bookStore.dao.ProductDao;
 import com.yezhou.bookStore.domain.Order;
+import com.yezhou.bookStore.exception.OrderException;
 import com.yezhou.bookStore.util.ManagerThreadLocal;
 
 import java.sql.SQLException;
@@ -47,4 +48,14 @@ public class OrderService {
         }
         return null;
     }
+
+    public void midifyOrderState(String orderid) throws OrderException {
+        try {
+            orderDao.modifyOrderState(orderid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new OrderException("修改失败");
+        }
+    }
+
 }

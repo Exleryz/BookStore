@@ -51,6 +51,9 @@ public class CreateOrderServlet extends HttpServlet {
         OrderService os = new OrderService();
         os.addOrder(order);
 
+        request.setAttribute("order_id", order.getId());
+        request.setAttribute("money", order.getMoney());
+
         request.getRequestDispatcher("/pay.jsp").forward(request, response);
     }
 

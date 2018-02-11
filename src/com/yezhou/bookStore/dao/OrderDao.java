@@ -85,4 +85,14 @@ public class OrderDao {
         order.setOrderItems(orderItems);
         return order;
     }
+
+    /**
+     * 修改订单支付状态
+     * @param orderid
+     * @throws SQLException
+     */
+    public void modifyOrderState(String orderid) throws SQLException {
+        QueryRunner qr = new QueryRunner(C3P0Util.getDataSource());
+        qr.update("update orders set paystate=1 where id=?", orderid);
+    }
 }
